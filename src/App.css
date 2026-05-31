@@ -1,29 +1,29 @@
+/* Breakpoints: 700px (card stack), 1024px (matches index.css global) */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff9f5;
-  color: #333;
-}
-
 .page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  flex: 1;
+}
+
+main {
+  flex: 1;
 }
 
 /* Header */
 .header {
-  background: #ff7043;
+  background: var(--brand-primary);
   padding: 16px 32px;
 }
 
 .header-inner {
-  max-width: 900px;
+  max-width: var(--content-width);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -31,26 +31,32 @@ body {
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 1.25rem;
   font-weight: bold;
   color: white;
 }
 
-nav {
+.header-inner nav {
   display: flex;
   gap: 24px;
 }
 
-nav a {
+.header-inner nav a {
   color: white;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 0.85rem;
   opacity: 0.9;
 }
 
-nav a:hover {
+.header-inner nav a:hover {
   opacity: 1;
   text-decoration: underline;
+}
+
+.header-inner nav a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Hero */
@@ -61,89 +67,95 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 2.33rem;
   margin-bottom: 16px;
-  color: #bf360c;
+  color: var(--brand-deep);
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 1rem;
   color: #555;
   max-width: 500px;
   margin: 0 auto 32px;
 }
 
-.hero button {
-  background: #ff7043;
+.btn-primary {
+  background: var(--brand-primary);
   color: white;
   border: none;
   padding: 14px 32px;
-  font-size: 16px;
+  font-size: 0.9rem;
   border-radius: 30px;
   cursor: pointer;
   transition: background 0.2s;
 }
 
-.hero button:hover {
-  background: #e64a19;
+.btn-primary:hover {
+  background: var(--brand-primary-dark);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--brand-deep);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary {
+    transition: none;
+  }
 }
 
 /* Cards */
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   padding: 60px 32px;
-  max-width: 900px;
+  max-width: var(--content-width);
   margin: 0 auto;
   width: 100%;
 }
 
 .card {
-  flex: 1;
   background: white;
   border-radius: 12px;
   padding: 32px 24px;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
 }
 
 .card span {
-  font-size: 40px;
+  font-size: 2.25rem;
   display: block;
   margin-bottom: 16px;
 }
 
 .card h3 {
-  font-size: 18px;
+  font-size: 1rem;
   margin-bottom: 10px;
-  color: #bf360c;
+  color: var(--brand-deep);
 }
 
 .card p {
-  font-size: 14px;
-  color: #666;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
 /* Footer */
 .footer {
-  margin-top: auto;
   background: #333;
   color: #aaa;
   text-align: center;
   padding: 24px;
-  font-size: 14px;
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
 @media (max-width: 700px) {
-  .cards {
-    flex-direction: column;
-  }
-
   .hero h1 {
-    font-size: 28px;
+    font-size: 1.55rem;
   }
 }
