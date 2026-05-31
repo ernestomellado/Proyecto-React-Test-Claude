@@ -19,7 +19,7 @@ function App() {
         <section className="hero">
           <h1>El mundo de los gatitos 🐾</h1>
           <p>Descubre todo sobre los felinos más adorables del planeta. Adopta, cuida y ama a tu gatito.</p>
-          <button>Adopta un gatito</button>
+          <button className="btn-primary">Adopta un gatito</button>
         </section>
 
         <section className="cards">
